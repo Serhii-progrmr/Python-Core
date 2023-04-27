@@ -1,0 +1,93 @@
+# Module 2_2_15
+# Умовні вирази
+# num = int(input("Enter a number: "))
+
+# if num > 0:
+#     if (num % 2) != 0:
+#         result = "Positive odd number"
+#     else:
+#         result = "Positive even number"
+# elif num < 0:
+#     result = "Negative number"
+# else:
+#     result = "It is zero"
+
+# task 8_15
+message = "Never argue with stupid people, they will drag you down to their level and then beat you with experience."
+search = "t"
+result = 0
+
+for item in message:
+    if item == search:
+        result += 1
+    
+print(f"number  = {result}  ") 
+#print(message.count("r")) 
+
+# task 9_15
+# first = int(input("Enter the first integer: "))
+# second = int(input("Enter the second integer: "))
+
+
+# while first !=0 and second !=0:
+#     if first < second:
+#         gcd = first
+#         second = second % gcd 
+#         gcd -= 1
+#     else:
+#         gcd = second
+#         first = first % gcd
+#         gcd -= 1
+
+# print (gcd)
+
+# first = int(input("Enter the first integer: "))
+# second = int(input("Enter the second integer: "))
+# gcd = first 
+# if first - second < 0 : 
+# else: second
+
+# while second % gcd != 0 or first % gcd != 0:
+#     gcd = gcd - 1
+
+# # task 12_15
+# sum = 0
+# while True:
+#     num = int(input("Enter integer (0 for output): "))
+#     if num == 0:
+#         break
+#     for i in range(num):
+#         if i % 2 == 1:
+#             continue
+
+#         sum = sum + i
+# print(sum)   
+
+# num = 10
+# for variable in range(num):
+#     if variable % 2 == 1:
+#         continue
+#     print(variable)
+
+# # task 13_15
+# message = input("Введите сообщение: ")
+# offset = int(input("Введите сдвиг: "))
+# encoded_message = ""
+# for ch in message:
+#     if ch.isupper() == True:
+#         pos = ord(ch) - ord("A") 
+#         pos = (pos + offset) % 26     
+#         new_char = chr(pos + ord("A"))
+#         encoded_message = encoded_message + new_char
+#     elif ch.islower() == True:
+#             pos = ord(ch) - ord("a") 
+#             pos = (pos + offset) % 26     
+#             new_char = chr(pos + ord("a"))
+#             encoded_message = encoded_message + new_char
+#     else:
+#         encoded_message = encoded_message + ch
+    
+#     print(encoded_message) 
+    #Hello my little friends!' -> 'Spwwz xj wteewp qctpyod!' offset=37
+    #mpwwz
+    

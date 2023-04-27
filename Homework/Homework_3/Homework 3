@@ -1,0 +1,102 @@
+## mod 6_11 
+# def format_string(string, length):
+#     if len(string) >= length:
+#         return string
+#     else:
+#         n =(length - len(string)) // 2
+#         print (n)
+#         return " "*n + string
+# #         
+# #         return string.rjust(n, " ")
+
+# length=12
+# string='aaaaaaaaaaaaaaaaac'
+# print(format_string(string, length))
+# length=15
+# string='abaa'
+# print(format_string(string, length))
+# a = "Hello, World!"
+# print(a)
+# print(len(a))
+# print(a.rjust(15, " "))
+
+# # mod 7_11
+# def first(size,*args):
+#     return (size), (len(*args)) 
+
+# def second(size,**comments):
+#     len(**comments)
+#     return size
+
+## mod 8_11
+# def modeling(factor, *numbers, correction):
+#     result = 0
+#     for number in numbers:
+#         result += number * factor
+#     result = result - correction
+#     return result
+
+# print(modeling(10, 1, 2, 3, correction=2))  # 58
+
+#Якщо нам потрібні аргументи, що передаються лише по ключу,/
+#але не потрібен параметр з зірочкою, то при оголошенні функції можна вказати
+#просто зірочку з підкресленням, без вказування імені:
+#def modeling(factor, *_, correction):
+# def cost_delivery(quantity, *_, discount =0):
+#     if quantity == 1:
+#         price = quantity * 5 
+#         if discount == 0:
+#             return (price)
+#         else:
+#             price -= price * discount 
+#     else:
+#         if discount == 0:
+#             price = (quantity - 1)*2 + 5
+#             return (price)
+#         else:
+#             price = (quantity - 1)*2 + 5    
+#             price -= price * discount
+#             return (price)
+
+# print(cost_delivery(2, 1, 2, 3)) #== 7
+# print(cost_delivery(3, 3)) #== 9
+# print(cost_delivery(1)) #== 5
+# print(cost_delivery(2, 1, 2, 3, discount=0.5)) #== 3.5
+## 2 variant:
+# def cost_delivery(quantity, *_, discount = 0):
+#     return (5 + 2 * (quantity - 1)) * (1 - discount)
+
+# print(cost_delivery(2, 1, 2, 3)) #== 7
+# print(cost_delivery(3, 3)) #== 9
+# print(cost_delivery(1)) #== 5
+# print(cost_delivery(2, 1, 2, 3, discount=0.5)) #== 3.5
+
+## mod 9_11
+# def cost_delivery(quantity, *_, discount=0):
+    
+#     result = (5 + 2 * (quantity - 1)) * (1 - discount)
+#     return result
+
+##mod 10_11
+# Обчислюємо факторіал числа n за допомогою рекурсії
+# @param n – число, для якого треба розрахувати факторіал
+# @return - факторіал числа n
+# n = 50
+# k = 7
+
+# def factorial(n):
+#     if n < 2:
+#         return 1  # Базовий випадок
+#     else:
+#         return n * factorial(n - 1)  # Рекурсивний випадок 
+        
+# def number_of_groups(n, k):
+#     return  int(factorial(n)/(factorial(n-k)*factorial(k)))
+
+##mod 10_11
+def fibonacci(n):
+    if n in (0, 1):
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))

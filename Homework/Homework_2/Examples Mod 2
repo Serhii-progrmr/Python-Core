@@ -1,0 +1,5 @@
+# for i in "String":
+#     print(i)
+# Str_value = "String"
+# for index in range ( len ( Str_value ) ):
+#     print ( Str_value[index])

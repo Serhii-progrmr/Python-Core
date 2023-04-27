@@ -1,0 +1,8 @@
+PS C:\Users\Sergio> venv/path/to/new/virtual/environment
+venv/path/to/new/virtual/environment : The term 'venv/path/to/new/virtual/environment' is not recognized as the name of a cmdlet, function, script file, or operable program. Che
+ck the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ venv/path/to/new/virtual/environment
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (venv/path/to/new/virtual/environment:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
