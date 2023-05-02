@@ -39,13 +39,24 @@
 # print(m,type(m))
 
 # словники вкладення
-user_1 = {"name": "Jane", "age": 21}
-user_2 = {"name": "Moris", "age": 23}
-user_3 = {"name": "Steve", "age": 24}
+# user_1 = {"name": "Jane", "age": 21}
+# user_2 = {"name": "Moris", "age": 23}
+# user_3 = {"name": "Steve", "age": 24}
 
-persons = [user_1, user_2, user_3]
+# persons = [user_1, user_2, user_3]
 
-for user in persons:
-    for field in user:
-        print(user.get(field))
-    print(user.get("name"), user.get("age"))   
+# for user in persons:
+#     for field in user:
+#         print(user.get(field))
+#     print(user.get("name"), user.get("age"))
+
+# Множини -це невпорядковані набори найпростіших об'єктів
+# empty = set()
+# print(empty, type(empty))  # set() 
+string_set = set("My set")
+print(string_set)  # {'s', ' ', 'y', 'M', 't', 'e'}
+list_set = set(["My", "set"])  # {'My', 'set'}
+print(list_set) 
+
+new_set = {1, 2, 3, "My", "set", "H", "i"}
+print(new_set)  # {1, 2, 3, 'My', 'i', 'set', 'H'}
