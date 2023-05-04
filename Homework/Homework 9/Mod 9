@@ -1,0 +1,106 @@
+# # Функції Декоратори замикання
+# # Task 1_14 завдання про систему оцінок в університеті,
+# def get_grade(key):
+#     grade = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+#     return grade.get(key, None)
+
+
+# def get_description(key):
+#     description = {
+#         "A": "Perfectly",
+#         "B": "Very good",
+#         "C": "Good",
+#         "D": "Satisfactorily",
+#         "E": "Enough",
+#         "FX": "Unsatisfactorily",
+#         "F": "Unsatisfactorily",
+#     }
+#     return description.get(key, None)
+
+
+# def get_student_grade(option): #приймає параметр option
+#     #print(option)
+#     if option == "grade": # функція повертає функцію get_grade
+#         return get_grade
+#     elif option == "description": # повертає функцію get_description
+#         return get_description
+#     else:
+#         return None #Якщо параметр за значенням не співпав із заданими,
+#         # то функція get_student_grade повинна повертати значення None
+
+# # Task 2_14 Область видимості# 
+# DEFAULT_DISCOUNT = 0.05 #визначає знижку для клієнта, якщо у нього немає поля discount
+
+
+# def get_discount_price_customer(price, customer): #для розрахунку ціни на товар інтернет-магазину
+#     # з урахуванням знижки клієнта #має повертати нову ціну товару для клієнта.
+#     if 'discount' in customer: #customer — словник з даними клієнта такого виду: {"name": "Dima"}
+#                                 # або {"name": "Boris", "discount": 0.15}
+#         discount = customer.get('discount') 
+#         #print(customer['discount'])
+#         price = price * (1 - discount)
+#         return price
+#     else:
+#         price = price * (1 - DEFAULT_DISCOUNT)
+#         return price
+
+# # Task 3_14
+# #Створіть функцію caching_fibonacci(),яка матиме кеш із попередньо обчисленими значеннями
+# # чисел Фібоначі.
+# #  Усередині вона містить функцію fibonacci(n), яка безпосередньо і
+# #  обчислюватиме саме число Фібоначчі. Функція caching_fibonacci() повертає функцію fibonacci
+# def caching_fibonacci():
+#     cache = {0:0, 1:1}
+#     def fibonacci(n):
+#         if n in cache:
+#             return cache[n]
+#         else:
+#             cache[n] = fibonacci(n - 1) + fibonacci(n - 2)
+#             return cache[n]
+#     return fibonacci
+
+# # Task 4_14
+# #Каррування — це перетворення функції від багатьох аргументів в набір функцій,
+# #  кожна з яких є функцією від одного аргументу.
+# price = 100
+
+
+# def discount_price(discount):#яка визначатиме в собі та повертатиме функцію розрахунку
+#                             # реальної ціни з урахуванням знижки.
+#                             # поверне функцію, яка розраховує ціну на товар зі знижкою,
+#                             # що дорівнює discount
+#     def get_price(price):
+#         return price*(1-discount)
+#     return get_price
+
+# Task 5_14
+# Декоратор. Цей шаблон полягає в тому, щоб розширювати існуючий функціонал,
+# не вносячи змін в код цього самого функціоналу.
+def format_phone_number(func):
+    def wrapper(phone): #пояснення в текстовому файлі 
+        new_phone = func(phone)
+        if len(new_phone) == 10:
+            new_phone = '+38' + new_phone
+        elif len(new_phone) == 12:
+            new_phone = '+' + new_phone
+        return new_phone
+    return wrapper
+    
+        
+@format_phone_number
+def sanitize_phone_number(phone):
+    new_phone = (
+        phone.strip()
+            .removeprefix("+")
+            .replace("(", "")
+            .replace(")", "")
+            .replace("-", "")
+            .replace(" ", "")
+    )
+    return new_phone
+
+print(sanitize_phone_number("+38(050)123-32-34")) # "+380501233234"
+print(sanitize_phone_number("0503451234")) # "+380503451234"
+print(sanitize_phone_number("(050)8889900")) # "+380508889900"
+print(sanitize_phone_number("38050-111-22-22")) # "+380501112222"
+print(sanitize_phone_number("38050 111 22 11   ")) # "+380501112211"
