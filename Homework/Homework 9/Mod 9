@@ -104,3 +104,40 @@ print(sanitize_phone_number("0503451234")) # "+380503451234"
 print(sanitize_phone_number("(050)8889900")) # "+380508889900"
 print(sanitize_phone_number("38050-111-22-22")) # "+380501112222"
 print(sanitize_phone_number("38050 111 22 11   ")) # "+380501112211"
+
+#Task 6_14 
+# 1 variant
+
+# string="The resulting profit was: from the southern possessions $ 100, from the northern colonies $500, and the king gave $1000."
+def generator_numbers(string=""): # буде парсити рядок і знаходити всі цілі числа
+    # в ньому та працювати як генератор,
+# який буде віддавати зазначені числа при зверненні до нього у циклі.
+    num = ""
+    for char in string:
+        if char.isdigit():
+            num += char
+        elif num:
+            yield int(num) #Якщо символ не є цифрою,
+            # ми перевіряємо, чи num не є порожнім рядком
+            num = ""
+    if num:# Якщо так, то ми повертаємо числове значення num за допомогою yield.
+        yield int(num)
+
+def sum_profit(string):# ітеруємось по результату функції generator_numbers та
+    # додаємо кожне число до загальної суми total, яку ми потім повертаємо.
+    total = 0
+    for num in generator_numbers(string):
+        total += num
+    return total            
+
+# 2 variant
+import re # імпорт бібліотеки 
+
+def generator_numbers(string=""): #використання регуляр виразів
+    pattern = r"\d+"
+    for match in re.finditer(pattern, string):
+        yield int(match.group(0))
+  
+
+def sum_profit(string):
+    return sum(generator_numbers(string))
