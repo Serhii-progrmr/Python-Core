@@ -6,5 +6,5 @@ from datetime import datetime, timedelta
 # d = datetime.now()
 td = '11.04.2023'
 interval = timedelta(days=4)
-finish_d = td + interval
+finish_d = td + " " + str(interval)
 print(finish_d)
