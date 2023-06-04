@@ -155,7 +155,79 @@
 #     return phone_country
 
 # 6_15
+# завдання на перевірку спаму в електронному листі або фільтрацію
+# заборонених слів у повідомленні.
+import re
+
 def is_spam_words(text, spam_words, space_around=False):
-    snt_text = text.lower()
+    text = text.lower()
+    if space_around:
+        for word in spam_words:
+            if re.search(rf"(?<![a-zа-яё0-9]){word.lower()}(?![a-zа-яё0-9])", text):
+                return True
+        return False
+    else:
+        for word in spam_words:
+            if word.lower() in text:
+                return True
+        return False
+
+# Приклад виклику функції з різними параметрами
+print(is_spam_words("Молох", ["лох"]))  # True
+print(is_spam_words("Молох", ["лох"], True))  # False
+print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
+
+
+# !!!!wrong code:
+# import re
+
+# def is_spam_words(text, spam_words, space_around=False):
+#     text_list = re.findall(r"\w+", text.lower())
+#     if space_around:
+#         for word in spam_words:
+#             if word.lower() in text_list:
+#                 return False
+#         return True
+#     else:
+#         for word in spam_words:
+#             for text_word in text_list:
+#                 if word.lower() == text_word:
+#                     return True
+#         return False
+    
+# print(is_spam_words("Молох", ["лох"]))  # True
+# print(is_spam_words("Молох", ["лох"], True))  # False
+# видає результат навпаки:
+    # False
+    # True
+# 2-nd case: # !!!!wrong code
+import re
+
+
+def is_spam_words(text, spam_words, space_around=False):
+    text_list = re.findall(r"\w+", text.lower())
+    if space_around:
+        for word in spam_words:
+            if f" {word.lower()} " in f" {' '.join(text_list)} ":
+                return True
+        return False
+    else:
+        for word in spam_words:
+            if word.lower() in text_list:
+                return True
+        return False
+
+# Приклад виклику функції з різними параметрами
+print(is_spam_words("Молох", ["лох"]))  # True
+print(is_spam_words("Молох", ["лох"], True))  # False
+print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
+# !!!!wrong code # Тепер функція повинна повернути правильні результати. У третьому виклику функції отримаємо True, оскільки слово "лох" зустрічається у рядку "Молох бог ужасен." і є простір навколо слова.
+
+
+
+
+
+
+
     
 
