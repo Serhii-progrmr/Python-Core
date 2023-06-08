@@ -62,28 +62,18 @@
 #     "38050-111-22-22",
 #     "38050 111 22 11   "
 
-# def sanitize_phone_number(phone):
+def sanitize_phone_number(phone):
 
-#     new_ph_n = ''
-#     phone.strip()
-#     remove_char = ('+', '(', ')', '-', ' ')
-#     for i in phone:
-#         if i not in remove_char:
-#             new_ph_n = new_ph_n + i
+    new_ph_n = ''
+    phone.strip()
+    remove_char = ('+', '(', ')', '-', ' ')
+    for i in phone:
+        if i not in remove_char:
+            new_ph_n = new_ph_n + i
 
-# # #     return len(new_text)
-#     # print(phone)
-#     return new_ph_n
+# #     return len(new_text)
+    # print(phone)
+    return new_ph_n
 
-# print(sanitize_phone_number(phone))
-# print(phone)
-
-## task 4_15
-# def is_check_name(fullname, first_name): # приймає два параметри (fullname, first_name) і повертає логічне значення True або False
-# чутлива до регістру літер, тобто "Sam" і "sam" для неї різні імена
-#    # if  first_name == "":
-#    #     return True # Це результат перевірки, чи є рядок first_name префіксом рядка fullname
-#    # else:
-#    #     return False
-# #def is_check_name(fullname, first_name):
-#     return fullname.startswith(first_name)
+print(sanitize_phone_number(phone))
+print(phone)
