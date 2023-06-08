@@ -7,20 +7,20 @@
 # #         if item not in remove_char:
 # #             new_text = new_text + item
 # #     return len(new_text)
-# #     print(new_text) 
+# #     print(new_text)
 # # text = 'Alex\nKdfe23\t\f\v.\r'
-# # text = 'Al\nKdfe23\t\v.\r'    
+# # text = 'Al\nKdfe23\t\v.\r'
 # ## task 2_15
 # #Треба реалізувати функцію find_articles для пошуку за статтями цього блогу.
-# #Є список articles_dict, в якому міститься опис статей блогу. 
-# #Кожен елемент цього списку є словником з наступними ключами: 
+# #Є список articles_dict, в якому міститься опис статей блогу.
+# #Кожен елемент цього списку є словником з наступними ключами:
 #     #прізвища авторів - ключ 'author', назва статті - ключ 'title', рік видання - ключ 'year'.
 
-# #Реалізуйте функцію find_articles,Параметр key функції визначає поєднання букв для пошуку. 
+# #Реалізуйте функцію find_articles,Параметр key функції визначає поєднання букв для пошуку.
 # #Наприклад, при key="Python" функція шукає, чи є у списку articles_dict статті, у назві чи іменах авторів
 # # яких зустрічається це поєднання літер. Якщо такі елементи списку були знайдені, треба повернути новий список зі словників,
 # # що містять прізвища авторів, назву та рік видання всіх таких статей.
-# #Другий ключовий параметр функції letter_case визначає, чи треба враховувати під час пошуку регістр літер. 
+# #Другий ключовий параметр функції letter_case визначає, чи треба враховувати під час пошуку регістр літер.
 # #За умовчанням він дорівнює False і регістр немає значення тобто пошук в тексті "Python" і "python" це те ж саме.
 # # Інакше потрібно шукати повний збіг.
 # articles_dict = [
@@ -56,24 +56,34 @@
 #     return found_articles
 
 ## task 3_15
-phone = "    +38(050)123-32-34"
+# phone = "    +38(050)123-32-34"
 #     "     0503451234",
 #     "(050)8889900",
 #     "38050-111-22-22",
 #     "38050 111 22 11   "
 
-def sanitize_phone_number(phone):
-    
-    new_ph_n = ''
-    phone.strip()
-    remove_char = ('+', '(', ')', '-', ' ')    
-    for i in phone:
-        if i not in remove_char:
-            new_ph_n = new_ph_n + i
+# def sanitize_phone_number(phone):
 
-# #     return len(new_text)
-    # print(phone)
-    return new_ph_n
+#     new_ph_n = ''
+#     phone.strip()
+#     remove_char = ('+', '(', ')', '-', ' ')
+#     for i in phone:
+#         if i not in remove_char:
+#             new_ph_n = new_ph_n + i
 
-print(sanitize_phone_number(phone))
-print(phone)
+# # #     return len(new_text)
+#     # print(phone)
+#     return new_ph_n
+
+# print(sanitize_phone_number(phone))
+# print(phone)
+
+## task 4_15
+# def is_check_name(fullname, first_name): # приймає два параметри (fullname, first_name) і повертає логічне значення True або False
+# чутлива до регістру літер, тобто "Sam" і "sam" для неї різні імена
+#    # if  first_name == "":
+#    #     return True # Це результат перевірки, чи є рядок first_name префіксом рядка fullname
+#    # else:
+#    #     return False
+# #def is_check_name(fullname, first_name):
+#     return fullname.startswith(first_name)
