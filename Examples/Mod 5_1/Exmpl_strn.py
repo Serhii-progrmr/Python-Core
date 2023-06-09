@@ -28,3 +28,6 @@ def formatted_grades(students):
             print(el)
 
     return grades_list
+
+for el in formatted_grades(students):
+    print(el)

@@ -75,5 +75,77 @@ def sanitize_phone_number(phone):
     # print(phone)
     return new_ph_n
 
-print(sanitize_phone_number(phone))
-print(phone)
+# print(sanitize_phone_number(phone))
+# print(phone)
+
+# task 4_15
+# def is_check_name(fullname, first_name):
+#    # if  first_name == "":
+#    #     return True
+#    # else:
+#    #     return False
+# #def is_check_name(fullname, first_name):
+#     return fullname.startswith(first_name)
+
+# task 5_15 ЗАВДАННЯ: ВАЛІДАЦІЯ ПОВІДОМЛЕННЯ НА НАЯВНІСТЬ СПАМ СЛІВ
+# import re
+
+
+# def is_spam_words(text, spam_words, space_around = False):
+#     text = text.lower()
+#     if space_around:
+#         for word in spam_words:
+#             if re.search(rf"(?<![a-zа-яё0-9]){word.lower()}(?![a-zа-яё0-9])", text):
+#                 return True
+#         return False
+#     else:
+#         for word in spam_words:
+#             if word.lower() in text:
+#                 return True
+#         return False
+
+# # Приклад виклику функції з різними параметрами
+# print(is_spam_words("Молох", ["лох"]))  # True
+# print(is_spam_words("Молох", ["лох"], True))  # False
+# print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
+
+# task 6_15 набір інструментів для обробки рядків
+# CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
+# TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
+#                "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
+
+# TRANS = {}
+
+# for c, t in zip(CYRILLIC_SYMBOLS, TRANSLATION):
+#     TRANS[ord(c)] = t
+#     TRANS[ord(c.upper())] = t.upper()
+
+
+# def translate(name):
+#     trnsl_name = name.translate(TRANS)
+#     return trnsl_name
+
+# task 8_15
+# приймає на вхід словник оцінювання студентів за предмет наступного вигляду:
+students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
+
+grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+
+
+def formatted_grades(students):# приймає на вхід словник оцінювання студентів за предмет
+    formatted_list = []
+    for index, (name, grade) in enumerate(students.items(), start=1):
+        formatted_row = "{:>4}|{:<10}|{:^5}|{:^5}".format(index, name, grade, grades[grade])
+        formatted_list.append(formatted_row)
+    return formatted_list
+#повертає список відформатованих рядків, щоб під час виведення наступного коду:
+for el in formatted_grades(students):
+    print(el)
+# Виходила наступна таблиця:
+# 1|Nick      |  A  |  5
+# 2|Olga      |  B  |  5
+# 3|Mike      | FX  |  2
+# 4|Anna      |  C  |  4
+
+# task 9_15
+
