@@ -62,18 +62,18 @@
 #     "38050-111-22-22",
 #     "38050 111 22 11   "
 
-def sanitize_phone_number(phone):
+# def sanitize_phone_number(phone):
 
-    new_ph_n = ''
-    phone.strip()
-    remove_char = ('+', '(', ')', '-', ' ')
-    for i in phone:
-        if i not in remove_char:
-            new_ph_n = new_ph_n + i
+#     new_ph_n = ''
+#     phone.strip()
+#     remove_char = ('+', '(', ')', '-', ' ')
+#     for i in phone:
+#         if i not in remove_char:
+#             new_ph_n = new_ph_n + i
 
-# #     return len(new_text)
-    # print(phone)
-    return new_ph_n
+# # #     return len(new_text)
+#     # print(phone)
+#     return new_ph_n
 
 # print(sanitize_phone_number(phone))
 # print(phone)
@@ -127,20 +127,20 @@ def sanitize_phone_number(phone):
 
 # task 8_15
 # приймає на вхід словник оцінювання студентів за предмет наступного вигляду:
-students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
+# students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
 
-grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+# grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
 
 
-def formatted_grades(students):# приймає на вхід словник оцінювання студентів за предмет
-    formatted_list = []
-    for index, (name, grade) in enumerate(students.items(), start=1):
-        formatted_row = "{:>4}|{:<10}|{:^5}|{:^5}".format(index, name, grade, grades[grade])
-        formatted_list.append(formatted_row)
-    return formatted_list
-#повертає список відформатованих рядків, щоб під час виведення наступного коду:
-for el in formatted_grades(students):
-    print(el)
+# def formatted_grades(students):# приймає на вхід словник оцінювання студентів за предмет
+#     formatted_list = []
+#     for index, (name, grade) in enumerate(students.items(), start=1):
+#         formatted_row = "{:>4}|{:<10}|{:^5}|{:^5}".format(index, name, grade, grades[grade])
+#         formatted_list.append(formatted_row)
+#     return formatted_list
+# #повертає список відформатованих рядків, щоб під час виведення наступного коду:
+# for el in formatted_grades(students):
+#     print(el)
 # Виходила наступна таблиця:
 # 1|Nick      |  A  |  5
 # 2|Olga      |  B  |  5
@@ -148,4 +148,14 @@ for el in formatted_grades(students):
 # 4|Anna      |  C  |  4
 
 # task 9_15
+def formatted_numbers():
+    list_numbers = list()
+    list_numbers.append("| decimal  |   hex    |  binary  |")
+    print(list_numbers[0])
+    for n in range(16):
+        list_numbers.append("|{:<10d}|{:^10x}|{:>10b}|".format(n, n, n))
+        print(list_numbers[n])
+    return list_numbers
 
+
+formatted_numbers()

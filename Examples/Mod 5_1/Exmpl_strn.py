@@ -12,22 +12,22 @@
 # print(s)  # 'Bob' Dilan
 
 # 8_15
-grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
-students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
+# grades = {"A": 5, "B": 5, "C": 4, "D": 3, "E": 3, "FX": 2, "F": 1}
+# students = {"Nick": "A", "Olga": "B", "Mike": "FX", "Anna": "C"}
 
-def formatted_grades(students):
+# def formatted_grades(students):
 
-    grades_list = []
-    count = 0
+#     grades_list = []
+#     count = 0
 
-    for student, grad in students.items():
-        count += 1
-        grades_list.append(f"{count:>4}|{student:<10}|{grad:^5}|{grades.get(grad):^5}")
+#     for student, grad in students.items():
+#         count += 1
+#         grades_list.append(f"{count:>4}|{student:<10}|{grad:^5}|{grades.get(grad):^5}")
 
-        for el in formatted_grades(students):
-            print(el)
+#         for el in formatted_grades(students):
+#             print(el)
 
-    return grades_list
+#     return grades_list
 
-for el in formatted_grades(students):
-    print(el)
+# for el in formatted_grades(students):
+#     print(el)
