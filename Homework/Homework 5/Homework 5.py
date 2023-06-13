@@ -148,14 +148,72 @@
 # 4|Anna      |  C  |  4
 
 # task 9_15
-def formatted_numbers():
-    list_numbers = list()
-    list_numbers.append("| decimal  |   hex    |  binary  |")
-    print(list_numbers[0])
-    for n in range(16):
-        list_numbers.append("|{:<10d}|{:^10x}|{:>10b}|".format(n, n, n))
-        print(list_numbers[n])
-    return list_numbers
+# def formatted_numbers():
+#     list_numbers = list()
+#     list_numbers.append("| decimal  |   hex    |  binary  |")
+#     print(list_numbers[0])
+#     for n in range(16):
+#         list_numbers.append("|{:<10d}|{:^10x}|{:>10b}|".format(n, n, n))
+#         print(list_numbers[n])
+#     return list_numbers
 
 
-formatted_numbers()
+#formatted_numbers()
+
+# task 10_15
+import re
+
+
+def find_word(text, word):# приймає два параметри: перший text та другий word?
+                        # виконує пошук зазначеного слова word у тексті text за
+                        #  допомогою функції search та повертає словник.
+    find = {'result': None,
+                'first_index': None,
+                'last_index': None,
+                'search_string': None,
+                'string': None,}
+    match = re.search(word,text)
+    if match:
+        find['result'] = True
+        find['first_index']  = match.span()[0]
+        find['last_index']  = match.span()[1]
+        find['search_string'] = word
+        find['string'] = text
+    else:
+        find['result'] = False
+        find['search_string'] = word
+        find['string'] = text
+    return find
+
+    # 2-nd version of code
+    # result_dict = {'result': '', 'first_index': '', 'last_index': '', 'search_string': '', 'string': '' }
+    # if not text.find(word) ==-1:
+    #     result_dict['result'] = True
+    #     result_dict['first_index'] = text.find(word)
+    #     result_dict['last_index'] = result_dict['first_index'] + len(word)
+    #     result_dict['search_string'] = word
+    #     result_dict['string'] = text
+    # else:
+    #     result_dict['result'] = False
+    #     result_dict['first_index'] = None
+    #     result_dict['last_index'] = None
+    #     result_dict['search_string'] = word
+    #     result_dict['string'] = text
+
+    # return result_dict
+
+# print(find_word(
+#     "Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.",
+#     "Python"))
+
+# task 11_15 #знайти всі відповідні шаблону значення функція findall
+import re
+
+
+def find_all_words(text, word):#яка шукає збіг слова в тексті. Функція повертає список всіх знаходжень
+                                # слова в параметрі word в тексті
+    find_all = ()
+    match = re.findall(word,text,re.IGNORECASE) # Використовуючи цей флаг,
+            # можна забезпечити регістронезалежний пошук при використанні регулярних виразів.
+    if match:
+        return match
