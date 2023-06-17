@@ -154,7 +154,7 @@
 
 #     return phone_country
 
-# 6_15
+# task 6_15
 # завдання на перевірку спаму в електронному листі або фільтрацію
 # заборонених слів у повідомленні.
 import re
@@ -223,7 +223,21 @@ print(is_spam_words("Молох", ["лох"], True))  # False
 print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
 # !!!!wrong code # Тепер функція повинна повернути правильні результати. У третьому виклику функції отримаємо True, оскільки слово "лох" зустрічається у рядку "Молох бог ужасен." і є простір навколо слова.
 
+# task 7_15
+CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
+TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
+               "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
 
+TRANS = {}
+
+for c, t in zip(CYRILLIC_SYMBOLS, TRANSLATION):
+    TRANS[ord(c)] = t
+    TRANS[ord(c.upper())] = t.upper()
+
+
+def translate(name):
+    trnsl_name = name.translate(TRANS)
+    return trnsl_name
 
 
 
