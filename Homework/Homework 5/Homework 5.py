@@ -88,7 +88,33 @@
 #     return fullname.startswith(first_name)
 
 # task 5_15 ЗАВДАННЯ: ВАЛІДАЦІЯ ПОВІДОМЛЕННЯ НА НАЯВНІСТЬ СПАМ СЛІВ
-# import re
+# def sanitize_phone_number(phone):
+#     new_phone = (
+#         phone.strip()
+#         .removeprefix("+")
+#         .replace("(", "")
+#         .replace(")", "")
+#         .replace("-", "")
+#         .replace(" ", "")
+#     )
+#     return new_phone
+
+# def get_phone_numbers_for_countries(list_phones):
+#     sanitazed_phones = [sanitize_phone_number(phone) for phone in list_phones]
+#     phone_dict = {"UA": [], "JP": [], "TW": [], "SG": []}
+#     for phone in sanitazed_phones:
+#         if phone[:2] == '81':
+#             phone_dict["JP"].append(phone)
+#         elif phone[:2] == '65':
+#             phone_dict["SG"].append(phone)
+#         elif phone[:3] == '886':
+#             phone_dict["TW"].append(phone)
+#         else:
+#             phone_dict["UA"].append(phone)
+#     return phone_dict
+
+# task 6_15 
+#import re
 
 
 # def is_spam_words(text, spam_words, space_around = False):
@@ -109,7 +135,7 @@
 # print(is_spam_words("Молох", ["лох"], True))  # False
 # print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
 
-# task 6_15 набір інструментів для обробки рядків
+# task 7_15 набір інструментів для обробки рядків
 # CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
 # TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
 #                "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
@@ -161,29 +187,29 @@
 #formatted_numbers()
 
 # task 10_15
-import re
+# import re
 
 
-def find_word(text, word):# приймає два параметри: перший text та другий word?
-                        # виконує пошук зазначеного слова word у тексті text за
-                        #  допомогою функції search та повертає словник.
-    find = {'result': None,
-                'first_index': None,
-                'last_index': None,
-                'search_string': None,
-                'string': None,}
-    match = re.search(word,text)
-    if match:
-        find['result'] = True
-        find['first_index']  = match.span()[0]
-        find['last_index']  = match.span()[1]
-        find['search_string'] = word
-        find['string'] = text
-    else:
-        find['result'] = False
-        find['search_string'] = word
-        find['string'] = text
-    return find
+# def find_word(text, word):# приймає два параметри: перший text та другий word?
+#                         # виконує пошук зазначеного слова word у тексті text за
+#                         #  допомогою функції search та повертає словник.
+#     find = {'result': None,
+#                 'first_index': None,
+#                 'last_index': None,
+#                 'search_string': None,
+#                 'string': None,}
+#     match = re.search(word,text)
+#     if match:
+#         find['result'] = True
+#         find['first_index']  = match.span()[0]
+#         find['last_index']  = match.span()[1]
+#         find['search_string'] = word
+#         find['string'] = text
+#     else:
+#         find['result'] = False
+#         find['search_string'] = word
+#         find['string'] = text
+#     return find
 
     # 2-nd version of code
     # result_dict = {'result': '', 'first_index': '', 'last_index': '', 'search_string': '', 'string': '' }
@@ -204,15 +230,31 @@ def find_word(text, word):# приймає два параметри: перши
 
 #     return phone_country
 
-# 6_15
-def is_spam_words(text, spam_words, space_around=False):
-    snt_text = text.lower()
-    
+# task 11_15 
+# import re
 
-def find_all_words(text, word):#яка шукає збіг слова в тексті. Функція повертає список всіх знаходжень
-                                # слова в параметрі word в тексті
-    find_all = ()
-    match = re.findall(word,text,re.IGNORECASE) # Використовуючи цей флаг,
-            # можна забезпечити регістронезалежний пошук при використанні регулярних виразів.
-    if match:
-        return match
+
+# def find_all_words(text, word):#Коли потрібно знайти всі відповідні шаблону значення
+#     find_all = ()
+#         #{'result': None,
+#                 # 'first_index': None,
+#                 # 'last_index': None,
+#                 # 'search_string': None,
+#                 # 'string': None,}
+#     match = re.findall(word,text,re.IGNORECASE)
+#     if match:
+#         return match
+
+# task 12_15
+# Щоб замінити всі підрядки, що відповідають регулярному виразу
+# скористатися функцією sub
+import re
+
+
+def replace_spam_words(text, spam_words):
+    for spm_wrd in spam_words:
+        text = re.sub(spm_wrd, '*'*len(spm_wrd),text, flags=re.IGNORECASE)
+    return text
+
+# task 13_15
+

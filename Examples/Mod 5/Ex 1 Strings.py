@@ -47,19 +47,24 @@
 # my_table = txt.maketrans("nus", "mot")
 # print(txt.translate(my_table))  # tom
 # #
-CYRILLIC = ("а", "ч", "ш")
-LATIN = ("a", "ch", "sh")
+# CYRILLIC = ("а", "ч", "ш")
+# LATIN = ("a", "ch", "sh")
 
-TRANSLIT_DICT = {}
+# TRANSLIT_DICT = {}
 
-for c, l in zip(CYRILLIC, LATIN):
-    TRANSLIT_DICT[ord(c)] = l
-    TRANSLIT_DICT[ord(c.upper())] = l.upper()
+# for c, l in zip(CYRILLIC, LATIN):
+#     TRANSLIT_DICT[ord(c)] = l
+#     TRANSLIT_DICT[ord(c.upper())] = l.upper()
 
-print("чаша".translate(TRANSLIT_DICT))  # chasha
-print("ЧАША".translate(TRANSLIT_DICT))  # CHASHA
+# print("чаша".translate(TRANSLIT_DICT))  # chasha
+# print("ЧАША".translate(TRANSLIT_DICT))  # CHASHA
 
+# замінити всі підрядки, що відповідають регулярному виразу
+# функція sub
+import re
 
+p = re.sub(r'(blue|white|red)', 'color', 'blue socks and red shoes')
+print(p)  # color socks and color shoes
 
 
 
