@@ -161,29 +161,29 @@
 #formatted_numbers()
 
 # task 10_15
-import re
+# import re
 
 
-def find_word(text, word):# приймає два параметри: перший text та другий word?
-                        # виконує пошук зазначеного слова word у тексті text за
-                        #  допомогою функції search та повертає словник.
-    find = {'result': None,
-                'first_index': None,
-                'last_index': None,
-                'search_string': None,
-                'string': None,}
-    match = re.search(word,text)
-    if match:
-        find['result'] = True
-        find['first_index']  = match.span()[0]
-        find['last_index']  = match.span()[1]
-        find['search_string'] = word
-        find['string'] = text
-    else:
-        find['result'] = False
-        find['search_string'] = word
-        find['string'] = text
-    return find
+# def find_word(text, word):# приймає два параметри: перший text та другий word?
+#                         # виконує пошук зазначеного слова word у тексті text за
+#                         #  допомогою функції search та повертає словник.
+#     find = {'result': None,
+#                 'first_index': None,
+#                 'last_index': None,
+#                 'search_string': None,
+#                 'string': None,}
+#     match = re.search(word,text)
+#     if match:
+#         find['result'] = True
+#         find['first_index']  = match.span()[0]
+#         find['last_index']  = match.span()[1]
+#         find['search_string'] = word
+#         find['string'] = text
+#     else:
+#         find['result'] = False
+#         find['search_string'] = word
+#         find['string'] = text
+#     return find
 
     # 2-nd version of code
     # result_dict = {'result': '', 'first_index': '', 'last_index': '', 'search_string': '', 'string': '' }
@@ -207,13 +207,45 @@ def find_word(text, word):# приймає два параметри: перши
 #     "Python"))
 
 # task 11_15 #знайти всі відповідні шаблону значення функція findall
+# import re
+
+
+# def find_all_words(text, word):#яка шукає збіг слова в тексті. Функція повертає список всіх знаходжень
+#                                 # слова в параметрі word в тексті
+#     find_all = ()
+#     match = re.findall(word,text,re.IGNORECASE) # Використовуючи цей флаг,
+#             # можна забезпечити регістронезалежний пошук при використанні регулярних виразів.
+#     if match:
+#         return match
+
+# task 12_15
+# import re
+
+
+# def replace_spam_words(text, spam_words):# Щоб замінити всі підрядки, що відповідають регулярному виразу
+#     for spm_wrd in spam_words:
+#         text = re.sub(spm_wrd, '*'*len(spm_wrd),text, flags=re.IGNORECASE) #Щоб замінити всі підрядки,
+#         # що відповідають регулярному виразу
+#     return text
+
+# task 13_15 # регулярний вираз для функції find_all_emails, яка буде в тексті (параметр text) знаходити
+# всі email та повертати список отриманих з тексту збігів
+
+# import re
+
+
+# def find_all_emails(text):
+#     pattern = r"([A-Za-z]{1}[A-Za-z0-9._]{1,}@[A-Za-z]+\.[A-Za-z]{2,})"
+#     result = re.findall(pattern, text)
+#     #result = ['@'.join(match) for match in matches]
+#     return result
+
+# task 14_15 # шукатимемо номер телефону України в міжнародному форматі,
+            # шаблон якого наступний: +380(67)777-7-777 або +380(67)777-77-77
 import re
 
 
-def find_all_words(text, word):#яка шукає збіг слова в тексті. Функція повертає список всіх знаходжень
-                                # слова в параметрі word в тексті
-    find_all = ()
-    match = re.findall(word,text,re.IGNORECASE) # Використовуючи цей флаг,
-            # можна забезпечити регістронезалежний пошук при використанні регулярних виразів.
-    if match:
-        return match
+def find_all_phones(text):
+    # result = re.findall(r"([+]{1}\d{3}\W\[067]{1}\[7]{3}\W\[7]{2})", text)
+    result = re.findall(r"\+380\(\d{2}\)\d{3}-(?:\d{2}|\d-\d{3})", text)
+    return result
