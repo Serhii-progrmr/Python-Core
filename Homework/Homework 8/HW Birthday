@@ -13,13 +13,13 @@ def get_birthdays_per_week(users):
             print({user['birthday'].strftime('%A')}, {user['name']})
 
 users = [
-    {"name": "John", "birthday": datetime(1990, 5, 8)},
-    {"name": "Andrii", "birthday": datetime(1987, 5, 8)},
-    {"name": "Alex", "birthday": datetime(1995, 5, 9)},
-    {"name": "Anna", "birthday": datetime(1985, 5, 11)},
-    {"name": "Mike", "birthday": datetime(1991, 5, 9)},
-    {"name": "Kate", "birthday": datetime(1992, 5, 13)},
-    {"name": "Tim", "birthday": datetime(1998, 5, 14)}
+    {"name": "John", "birthday": datetime(1990, 6, 18)},
+    {"name": "Andrii", "birthday": datetime(1987, 6, 26)},
+    {"name": "Alex", "birthday": datetime(1995, 6, 24)},
+    {"name": "Anna", "birthday": datetime(1985, 6, 24)},
+    {"name": "Mike", "birthday": datetime(1991, 6, 25)},
+    {"name": "Kate", "birthday": datetime(1992, 6, 28)},
+    {"name": "Tim", "birthday": datetime(1998, 6, 29)}
 ]
 
 get_birthdays_per_week(users)
@@ -73,4 +73,3 @@ get_birthdays_per_week(users)
 #     else:
 #         user["birthday"] = user["birthday"].replace(hour=0, minute=0, second=0, microsecond=0)
 #         print(users)
-
