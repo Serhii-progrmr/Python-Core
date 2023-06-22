@@ -88,7 +88,33 @@
 #     return fullname.startswith(first_name)
 
 # task 5_15 ЗАВДАННЯ: ВАЛІДАЦІЯ ПОВІДОМЛЕННЯ НА НАЯВНІСТЬ СПАМ СЛІВ
-# import re
+# def sanitize_phone_number(phone):
+#     new_phone = (
+#         phone.strip()
+#         .removeprefix("+")
+#         .replace("(", "")
+#         .replace(")", "")
+#         .replace("-", "")
+#         .replace(" ", "")
+#     )
+#     return new_phone
+
+# def get_phone_numbers_for_countries(list_phones):
+#     sanitazed_phones = [sanitize_phone_number(phone) for phone in list_phones]
+#     phone_dict = {"UA": [], "JP": [], "TW": [], "SG": []}
+#     for phone in sanitazed_phones:
+#         if phone[:2] == '81':
+#             phone_dict["JP"].append(phone)
+#         elif phone[:2] == '65':
+#             phone_dict["SG"].append(phone)
+#         elif phone[:3] == '886':
+#             phone_dict["TW"].append(phone)
+#         else:
+#             phone_dict["UA"].append(phone)
+#     return phone_dict
+
+# task 6_15
+#import re
 
 
 # def is_spam_words(text, spam_words, space_around = False):
@@ -109,7 +135,7 @@
 # print(is_spam_words("Молох", ["лох"], True))  # False
 # print(is_spam_words('Молох бог ужасен.', ['лох']))  # True
 
-# task 6_15 набір інструментів для обробки рядків
+# task 7_15 набір інструментів для обробки рядків
 # CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
 # TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
 #                "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "ya", "je", "i", "ji", "g")
@@ -202,9 +228,8 @@
 
     # return result_dict
 
-# print(find_word(
-#     "Guido van Rossum began working on Python in the late 1980s, as a successor to the ABC programming language, and first released it in 1991 as Python 0.9.0.",
-#     "Python"))
+#     return phone_country
+
 
 # task 11_15 #знайти всі відповідні шаблону значення функція findall
 # import re
@@ -215,10 +240,24 @@
 #     find_all = ()
 #     match = re.findall(word,text,re.IGNORECASE) # Використовуючи цей флаг,
 #             # можна забезпечити регістронезалежний пошук при використанні регулярних виразів.
+
+# task 11_15
+# import re
+
+
+# def find_all_words(text, word):#Коли потрібно знайти всі відповідні шаблону значення
+#     find_all = ()
+#         #{'result': None,
+#                 # 'first_index': None,
+#                 # 'last_index': None,
+#                 # 'search_string': None,
+#                 # 'string': None,}
+#     match = re.findall(word,text,re.IGNORECASE)
 #     if match:
 #         return match
 
 # task 12_15
+
 # import re
 
 
