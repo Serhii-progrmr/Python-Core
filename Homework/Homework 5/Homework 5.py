@@ -286,5 +286,23 @@ import re
 
 def find_all_phones(text):
     # result = re.findall(r"([+]{1}\d{3}\W\[067]{1}\[7]{3}\W\[7]{2})", text)
-    result = re.findall(r"\+380\(\d{2}\)\d{3}-(?:\d{2}|\d-\d{3})", text)
+    #result = re.findall(r"\+380\(\d{2}\)\d{3}-(?:\d{2}|\d-\d{3})", text)
+    #pattern = r"\+\d{3}\(\d{2}\)\d{3}-\d{1,2}-\d{2,3}"#'+380(67)777-7-771', '+380(67)777-77-77', '+380(67)777-77-787'#
+    # uncorrect result upper case
+    # This is correct bellow:
+    pattern = r"\+[3,8,0]{3}\([\d]{2}\)[\d]{3}\-(?:\d{1}\-\d{3}|\d{2}\-\d{2})"
+    result = re.findall(pattern, text)
+    return result
+
+# task 15_15 # пошук у тексті гіперпосилань.
+# використовувати finditer — це корисно, оскільки вона надає об'єкти збігів замість рядків.
+# finditer повертає ітератор, що дає об'єкти збігів по всіх збігах, що не перекриваються для шаблону pattern у рядку string.
+import re
+
+
+def find_all_links(text):
+    result = []
+    iterator = re.finditer(r"(https?://[\w-]+(?:\.[a-zA-Z]{2,6}){1,2})[^\s]*", text)
+    for match in iterator:
+        result.append(match.group())
     return result

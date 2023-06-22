@@ -31,3 +31,15 @@
 
 # for el in formatted_grades(students):
 #     print(el)
+
+# finditer повертає ітератор, що дає об'єкти збігів по всіх збігах, що не перекриваються для шаблону pattern у рядку string.
+import re
+
+regex = r"[a-zA-Z]{1}[\w\.]+@[a-zA-z]+\.[a-zA-Z]{2,}"
+
+test_str = "Ima.Fool@iana.org Ima.Fool@iana.o 1Fool@iana.org first_last@iana.org first.middle.last@iana.or a@test.com abc111@test.com.net"
+
+matches = re.finditer(regex, test_str)
+
+for match in matches:
+    print(f"{match.group()} start: {match.start()} end: {match.end()}")
