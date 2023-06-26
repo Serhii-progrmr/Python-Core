@@ -1,40 +1,16 @@
-# from datetime import datetime, timedelta
-
-# # 1 variant
-# def get_birthdays_per_week(users):
-#     today = datetime.today()
-#     #print(today)
-#     next_week = today + timedelta(days=7)
-#     #print(next_week)
-
-#     for user in users:
-#         if today <= user['birthday'] <= next_week:
-#             #print(f"Happy birthday to {user['name']} on {user['birthday'].strftime('%A, %B %d, %Y')}")
-#             print({user['birthday'].strftime('%A')}, {user['name']})
-
-# users = [
-#     {"name": "John", "birthday": datetime(1990, 6, 18)},
-#     {"name": "Andrii", "birthday": datetime(1987, 6, 26)},
-#     {"name": "Alex", "birthday": datetime(1995, 6, 24)},
-#     {"name": "Anna", "birthday": datetime(1985, 6, 24)},
-#     {"name": "Mike", "birthday": datetime(1991, 6, 25)},
-#     {"name": "Kate", "birthday": datetime(1992, 6, 28)},
-#     {"name": "Tim", "birthday": datetime(1998, 6, 29)}
-# ]
-
-# get_birthdays_per_week(users)
-
-# 2 variant
 from datetime import datetime, timedelta
 
 
-def get_birthdays_per_week(users):
-    # Отримуємо поточну дату
-    today = datetime.now().date()
 
+def get_birthdays_per_week(users):
+    # Отримуємо поточну дату і поточний рік
+    today = datetime.now().date()
+    current_year = datetime.now().year
+
+    #print(today)
     # Знаходимо наступний понеділок
     next_monday = today + timedelta(days=(7 - today.weekday()))
-
+    #print(next_monday, 'next monday')
     # Обчислюємо дату наступного понеділка для перевірки днів народження
     check_date = next_monday
 
@@ -43,9 +19,10 @@ def get_birthdays_per_week(users):
 
     # Обробляємо дні народження для наступного тижня
     for user in users:
-        # Отримуємо день народження користувача
+        # Отримуємо день народження користувача в поточному році
         birthday = user["birthday"].date()
-
+        birthday = birthday.replace(year=current_year)
+        #print(birthday)
         # Перевіряємо, чи є день народження на поточному тижні
         if today <= birthday < check_date:
             # Визначаємо день тижня дня народження
@@ -67,14 +44,22 @@ def get_birthdays_per_week(users):
 
 # Тестовий список users
 users = [
-    {"name": "John", "birthday": datetime(1990, 6, 18)},
-    {"name": "Andrii", "birthday": datetime(1987, 6, 26)},
-    {"name": "Alex", "birthday": datetime(1995, 6, 24)},
-    {"name": "Anna", "birthday": datetime(1985, 6, 24)},
-    {"name": "Mike", "birthday": datetime(1991, 6, 25)},
+    {"name": "John", "birthday": datetime(1990, 7, 1)},
+    {"name": "Andrii", "birthday": datetime(1987, 7, 2)},
+    {"name": "Alex", "birthday": datetime(1995, 6, 26)},
+    {"name": "Anna", "birthday": datetime(1985, 6, 27)},
+    {"name": "Mike", "birthday": datetime(1991, 6, 29)},
     {"name": "Kate", "birthday": datetime(1992, 6, 28)},
     {"name": "Tim", "birthday": datetime(1998, 6, 29)}
 ]
-
+# users = [
+#     {"name": "John", "birthday": datetime(2023, 7, 1)},
+#     {"name": "Andrii", "birthday": datetime(2023, 7, 2)},
+#     {"name": "Alex", "birthday": datetime(2023, 6, 26)},
+#     {"name": "Anna", "birthday": datetime(2023, 6, 27)},
+#     {"name": "Mike", "birthday": datetime(2023, 6, 29)},
+#     {"name": "Kate", "birthday": datetime(2023, 6, 28)},
+#     {"name": "Tim", "birthday": datetime(2023, 6, 29)}
+# ]
 # Виклик функції для тестового списку users
 get_birthdays_per_week(users)

@@ -9,7 +9,7 @@ def get_birthdays_per_week(users):
 
     for user in users:
         if today <= user['birthday'] <= next_week:
-            #print(f"Happy birthday to {user['name']} on {user['birthday'].strftime('%A, %B %d, %Y')}")
+            print(f"Happy birthday to {user['name']} on {user['birthday'].strftime('%A, %B %d, %Y')}")
             print({user['birthday'].strftime('%A')}, {user['name']})
 
 users = [
