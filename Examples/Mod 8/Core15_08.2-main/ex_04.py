@@ -4,7 +4,15 @@ from collections import defaultdict
 
 employees = [{"name": "Pitier", "birthdate": datetime(1990, 6, 28)},
             {"name": "Angel", "birthdate": "01.07.2000"},
-            {"name": "Angel", "birthdate": datetime(1985, 6, 28)}]
+            {"name": "Angel", "birthdate": datetime(1985, 6, 28)}
+            {"name": "John", "birthday": datetime(1990, 7, 1)},
+    {"name": "Andrii", "birthday": datetime(1987, 7, 2)},
+    {"name": "Alex", "birthday": datetime(1995, 6, 26)},
+    {"name": "Anna", "birthday": datetime(1985, 6, 27)},
+    {"name": "Mike", "birthday": datetime(1991, 6, 29)},
+    {"name": "Kate", "birthday": datetime(1992, 6, 28)},
+    {"name": "Tim", "birthday": datetime(1998, 6, 29)}
+    ]
 
 
 def get_period() -> tuple[datetime.date, datetime.date]:
