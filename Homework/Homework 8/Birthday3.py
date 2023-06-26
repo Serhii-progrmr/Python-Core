@@ -52,14 +52,6 @@ users = [
     {"name": "Kate", "birthday": datetime(1992, 6, 28)},
     {"name": "Tim", "birthday": datetime(1998, 6, 29)}
 ]
-# users = [
-#     {"name": "John", "birthday": datetime(2023, 7, 1)},
-#     {"name": "Andrii", "birthday": datetime(2023, 7, 2)},
-#     {"name": "Alex", "birthday": datetime(2023, 6, 26)},
-#     {"name": "Anna", "birthday": datetime(2023, 6, 27)},
-#     {"name": "Mike", "birthday": datetime(2023, 6, 29)},
-#     {"name": "Kate", "birthday": datetime(2023, 6, 28)},
-#     {"name": "Tim", "birthday": datetime(2023, 6, 29)}
-# ]
+
 # Виклик функції для тестового списку users
 get_birthdays_per_week(users)
