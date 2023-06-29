@@ -7,6 +7,13 @@ def mul(a, b):
 def add(a, b):
     return a + b
 
+def minus(a, b):
+    return a - b
+
+def sub(a, b):
+    return a % b
+
+
 def ops(a, b, func):  # func - передаємо якусь ф-цію як параметр
     return func(a, b)
 
@@ -15,4 +22,10 @@ result = ops(2, 3, mul)
 print(result)
 
 result = ops(2, 3, add)
+print(result)
+
+result = ops(5, 3, minus)
+print(result)
+
+result = ops(5, 3, sub)
 print(result)
