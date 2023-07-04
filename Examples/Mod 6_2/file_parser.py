@@ -67,8 +67,3 @@ if __name__ == '__main__':
     print('*' * 25)
     print(f'Types of file in folder: {EXTENSIONS}')
     print(f'UNKNOWN: {UNKNOWN}')
-
-
-
-
-

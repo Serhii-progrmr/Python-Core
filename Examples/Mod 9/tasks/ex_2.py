@@ -17,6 +17,3 @@ for _ in range(200):
     result.append(next(rand_generator))
 
 print(result)
-
-
-
