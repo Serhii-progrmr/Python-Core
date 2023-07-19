@@ -76,7 +76,7 @@ def main():
         # example: add Petro 0991234567
         user_input = input('Please enter command and args: ')
         handler, *args = parse_input(user_input)
-        result = handler(*args)
+        result = handler(*args) 
         if not result:
             print('Exit')
             break
