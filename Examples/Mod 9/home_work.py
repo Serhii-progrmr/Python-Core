@@ -22,6 +22,7 @@ def unknown_command(_):
     return "unknown_command"
 
 def exit(_):
+    print('Good bye!')
     return
 
 @error_handler
@@ -36,6 +37,7 @@ def change_phone(args):
     old_phone = USERS[name]
     USERS[name] = phone
     return f'У {name} тепер телефон: {phone} Старий номер: {old_phone}'
+
 
 def show_all(_):
     result = ''
@@ -76,7 +78,7 @@ def main():
         # example: add Petro 0991234567
         user_input = input('Please enter command and args: ')
         handler, *args = parse_input(user_input)
-        result = handler(*args) 
+        result = handler(*args)
         if not result:
             print('Exit')
             break
