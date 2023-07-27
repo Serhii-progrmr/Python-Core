@@ -45,13 +45,22 @@ def show_all(_):
         result += f'Name: {name} phone: {phone}\n'
     return result
 
+@error_handler
 def show_phone(args):
-    # put some logic here
-    pass
+    result = ''
+    name = ' '.join(args).strip()
+    if name in USERS:
+        phone = USERS[name]
+        result = f'Name: {name} phone: {phone}'
+    else:
+        result = f'Contact {name} not found'
+    return result
+    # pass
 
 HANDLERS = {
     'hello': hello_user,
     'add': add_user,
+    'show phone': show_phone,
     'change': change_phone,
     'show all': show_all,
     'exit': exit,
