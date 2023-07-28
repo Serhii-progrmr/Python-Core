@@ -12,13 +12,12 @@ def error_handler(func):
             return 'Give me name and phone please'
         except IndexError:
             return 'Enter user name'
-        # if not USERS:
-        #     return "Phonebook is empty. Add some contacts first."
+        if not USERS:
+            return "Phonebook is empty. Add some contacts first."
     return inner
 
 def hello_user(_):
     return "How can I help you?"
-
 
 def unknown_command(_):
     return "unknown_command"
@@ -51,11 +50,12 @@ def show_all(_):
 def show_phone(args):
     result = ''
     name = ' '.join(args).strip()
-    if name in USERS:
-        phone = USERS[name]
-        result = f'Name: {name} phone: {phone}'
-    # else:
-    #     result = f'Contact {name} not found'
+    phone = USERS[name]
+    #if name in USERS:
+    phone = USERS[name]
+    result = f'Name: {name} phone: {phone}'
+    #else:
+        #result = f'Contact {name} not found'
     return result
     # pass
 
@@ -73,7 +73,6 @@ HANDLERS = {
 def parse_input(user_input):
     command, *args = user_input.split()
     command = command.lstrip()
-
     try:
         handler = HANDLERS[command.lower()]
     except KeyError:
@@ -82,7 +81,6 @@ def parse_input(user_input):
             args = args[1:]
         handler = HANDLERS.get(command.lower(), unknown_command)
     return handler, args
-
 
 def main():
     while True:
@@ -94,7 +92,5 @@ def main():
             print('Exit')
             break
         print(result)
-
-
 if __name__ == "__main__":
     main()
